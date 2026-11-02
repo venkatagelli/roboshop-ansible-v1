@@ -8,8 +8,8 @@
         dest: /etc/yum.repos.d/mongo.repo
 
     - name: install mongodb server
-      package:  mongodb-org
-      state:  present
+        package:  mongodb-org
+        state:  present
 
     - name: start and enable mongodb service
       service: 
