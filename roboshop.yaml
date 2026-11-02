@@ -1,7 +1,7 @@
 - name: create ec2 instances and r53 records
   hosts: local
   connection: local
-  var:
+  vars:
     instances: ["mongodb","redis","mysql","rabitmq"]
     action: create
     domain_name: daws92s.sbs
