@@ -22,9 +22,9 @@
       when: action == "create"
       register: ec2_output
 
-    - name: print ec2_output
-      debug:
-        msg: "{{ ec2_output }}"
+    # - name: print ec2_output
+    #   debug:
+    #     msg: "{{ ec2_output }}"
 
     - name: create R53 record
       amazon.aws.route53:
