@@ -10,8 +10,8 @@
 
     - name: install nodejs
       dnf:  
-      name: nodejs
-      state: present
+        name: nodejs
+        state: present
 
     - name: create roboshop system user
       user:
