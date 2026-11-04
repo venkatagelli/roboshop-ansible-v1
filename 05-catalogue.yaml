@@ -48,9 +48,10 @@
         dest: /app
         remote_src: yes
 
-    - name: install dependenciew
-      community.general.npm: /app
-        state:  present
+    - name: install dependencies
+      community.general.npm: 
+        path: /app
+        
 
     - name: copy catalogue.service file
       template:
