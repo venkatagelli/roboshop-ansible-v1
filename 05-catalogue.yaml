@@ -49,8 +49,7 @@
         remote_src: yes
 
     - name: install dependenciew
-      npm:
-        community.general.npm: /app
+      community.general.npm: /app
         state:  present
 
     - name: copy catalogue.service file
