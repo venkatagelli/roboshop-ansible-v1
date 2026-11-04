@@ -68,4 +68,26 @@
         name: mongodb-mongosh
         state:  present
 
+    - name: check products loaded or network
+      command: mongosh --host "{{ mongodb_host }}" --quiet --eval 'db.getSiblingDB("catalogue").products.countDocuments()'
+      register: product_count
+
+    - name: print product count
+      debug:
+        msg: "{{ product_count }}"
+
+    - name: load products
+      shell:  mongosh --host "{{ mongodb_host }}" </app/db/master-data.js
+      when: product_count.stdout | int == 0
+
+    - name: daemon reload
+      systemd_service:
+        daemon_reload: true
+
+    - name: start and enable catalogue
+      service:
+        name: catalogue
+        state: restarted
+        enabled: yes
+
 
