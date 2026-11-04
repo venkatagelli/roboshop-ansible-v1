@@ -68,7 +68,7 @@
         name: mongodb-mongosh
         state:  present
 
-    - name: check products loaded or network
+    - name: check products loaded or net
       command: mongosh --host "{{ mongodb_host }}" --quiet --eval 'db.getSiblingDB("catalogue").products.countDocuments()'
       register: product_count
 
